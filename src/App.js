@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Products from "./Components/Products";
 
 function App() {
+  const [selectedItem, setSelectedItem] = useState([]);
   const allProducts = [
     {
       Id: 1,
@@ -51,9 +52,10 @@ function App() {
   return (
     <>
       <h1>Hello React</h1>
-
       {isLoading && <p>Loading....</p>}
-      {!isLoading && products && <Products products={products} />}
+      {!isLoading && products && (
+        <Products products={products} setSelectedItem={setSelectedItem} />
+      )}
     </>
   );
 }
