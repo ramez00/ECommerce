@@ -1,6 +1,6 @@
 import { Product } from "./Product";
 
-const Products = ({ products, setSelectedItem }) => {
+const Products = ({ products, setSelectedItem, cartItem }) => {
   return (
     <div>
       <ul style={{ display: "flex", gap: "50px" }}>
