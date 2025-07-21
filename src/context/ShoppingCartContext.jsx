@@ -1,6 +1,6 @@
-import { createContext, React, useState, useEffect } from "react";
+import { createContext, React, useState, useEffect, useContext } from "react";
 
-export const ShoppibgCartContext = createContext();
+const ShoppibgCartContext = createContext();
 
 let cachedItems = localStorage.getItem("cartItem")
   ? JSON.parse(localStorage.getItem("cartItem"))
@@ -20,3 +20,7 @@ export const ShoppingCartContextProvider = ({ children }) => {
 };
 
 export default ShoppingCartContextProvider;
+
+export const useShoppingCartContext = () => {
+  return useContext(ShoppibgCartContext);
+};

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import CartItem from "./CartItem";
-import { ShoppibgCartContext } from "../context/ShoppingCartContext";
+import { useShoppingCartContext } from "../context/ShoppingCartContext";
 
 const Cart = () => {
-  const { cartItem } = useContext(ShoppibgCartContext);
+  const { cartItem } = useShoppingCartContext();
   return (
     <>
       Cart List : {cartItem.length}
