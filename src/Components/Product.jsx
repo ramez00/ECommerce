@@ -1,11 +1,14 @@
-import React from "react";
+import { React, useContext } from "react";
 import star from "../Assets/star.png";
 import toast from "react-hot-toast";
+import { ShoppibgCartContext } from "../context/ShoppingCartContext";
 
-export const Product = ({ product, setSelectedItem }) => {
+export const Product = ({ product }) => {
+  const { setCartItem } = useContext(ShoppibgCartContext);
+
   const handelonClick = (product) => {
     toast("Product added to Cart");
-    setSelectedItem((prev) => {
+    setCartItem((prev) => {
       return [...prev, product];
     });
   };

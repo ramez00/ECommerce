@@ -34,13 +34,8 @@ function App() {
     },
   ];
 
-  let cachedItems = localStorage.getItem("cartItem")
-    ? JSON.stringify(localStorage.getItem("cartItem"))
-    : [];
-
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(cachedItems);
 
   useEffect(() => {
     const getData = async () => {
@@ -58,11 +53,9 @@ function App() {
     <>
       <h1>Hello React</h1>
       {isLoading && <p>Loading....</p>}
-      {!isLoading && products && (
-        <Products products={products} setSelectedItem={setSelectedItem} />
-      )}
-      Cart Item : {cachedItems.length}
-      <Cart cartItem={selectedItem} />
+      {!isLoading && products && <Products products={products} />}
+
+      <Cart />
     </>
   );
 }
